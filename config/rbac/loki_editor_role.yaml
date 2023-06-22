@@ -1,0 +1,31 @@
+# permissions for end users to edit lokis.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: clusterrole
+    app.kubernetes.io/instance: loki-editor-role
+    app.kubernetes.io/component: rbac
+    app.kubernetes.io/created-by: loki-helm-operator
+    app.kubernetes.io/part-of: loki-helm-operator
+    app.kubernetes.io/managed-by: kustomize
+  name: loki-editor-role
+rules:
+- apiGroups:
+  - charts.example.com
+  resources:
+  - lokis
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - charts.example.com
+  resources:
+  - lokis/status
+  verbs:
+  - get

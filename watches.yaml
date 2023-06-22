@@ -1,0 +1,14 @@
+# Use the 'create api' subcommand to add watches to this file.
+- group: charts.example.com
+  version: v1alpha1
+  kind: Loki
+  chart: helm-charts/loki
+  values:
+    loki:
+      commonConfig:
+      replication_factor: 1
+    storage:
+      type: 'filesystem'
+   singleBinary:
+     replicas: 1
+#+kubebuilder:scaffold:watch
