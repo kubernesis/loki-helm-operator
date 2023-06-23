@@ -47,7 +47,7 @@ ifeq ($(USE_IMAGE_DIGESTS), true)
 endif
 
 # Image URL to use all building/pushing image targets
-IMG ?= $(IMAGE_TAG_BASE)-controller:latest
+IMG ?= $(IMAGE_TAG_BASE)-controller:$(VERSION)
 # ENVTEST_K8S_VERSION refers to the version of kubebuilder assets to be downloaded by envtest binary.
 ENVTEST_K8S_VERSION = 1.25.0
 
@@ -116,7 +116,7 @@ run: manifests generate fmt vet ## Run against the configured Kubernetes cluster
 	
 .PHONY: docker-build
 docker-build: build test ## Build docker image with the manager.
-	docker build -t ${IMG} .
+	docker build -t ${IMG} . --load
 
 .PHONY: docker-push
 docker-push: ## Push docker image with the manager.

@@ -6,6 +6,7 @@
 *.so
 *.dylib
 bin
+loki-helm-operator
 
 # editor and IDE paraphernalia
 .idea
