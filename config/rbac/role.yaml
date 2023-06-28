@@ -74,5 +74,19 @@ rules:
   - "daemonsets"
   - "deployments"
   - "statefulsets"
+- verbs:
+  - "*"
+  apiGroups:
+  - "apiextensions.k8s.io"
+  resources:
+  - "customresourcedefinitions"
+- verbs:
+  - "*"
+  apiGroups:
+  - "monitoring.k8s.io"
+  resources:
+  - "servicemonitor"
+  - "prometheusrule"
+
 
 #+kubebuilder:scaffold:rules

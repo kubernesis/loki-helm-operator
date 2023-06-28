@@ -16,18 +16,34 @@ metadata:
                 "replication_factor": 1
               }
             },
+            "monitoring": {
+              "selfMonitoring": {
+                "enabled": false,
+                "grafanaAgent": {
+                  "installOperator": false
+                }
+              },
+              "serviceMonitor": {
+                "metricsInstance": {
+                  "enabled": false
+                }
+              }
+            },
             "singleBinary": {
               "replicas": 1
             },
             "storage": {
               "type": "filesystem"
+            },
+            "test": {
+              "enabled": false
             }
           }
         }
       ]
     capabilities: Basic Install
-    createdAt: "2023-06-23T23:21:06Z"
-    operators.operatorframework.io/builder: operator-sdk-v1.29.0
+    createdAt: "2023-06-28T17:43:25Z"
+    operators.operatorframework.io/builder: operator-sdk-v1.30.0
     operators.operatorframework.io/project_layout: hybrid.helm.sdk.operatorframework.io/v1-alpha
   name: loki-helm-operator.v0.0.1
   namespace: placeholder
@@ -107,6 +123,19 @@ spec:
           - daemonsets
           - deployments
           - statefulsets
+          verbs:
+          - '*'
+        - apiGroups:
+          - apiextensions.k8s.io
+          resources:
+          - customresourcedefinitions
+          verbs:
+          - '*'
+        - apiGroups:
+          - monitoring.k8s.io
+          resources:
+          - servicemonitor
+          - prometheusrule
           verbs:
           - '*'
         - apiGroups:

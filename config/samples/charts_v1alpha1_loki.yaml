@@ -10,3 +10,15 @@ spec:
     type: 'filesystem'
   singleBinary:
     replicas: 1
+  # serviceAccount:
+  #   create: false
+  test:
+    enabled: false
+  monitoring:
+    selfMonitoring:
+      enabled: false
+      grafanaAgent:
+        installOperator: false
+    serviceMonitor:
+      metricsInstance:
+        enabled: false
