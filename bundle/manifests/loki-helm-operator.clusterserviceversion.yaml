@@ -11,12 +11,31 @@ metadata:
             "name": "loki-sample"
           },
           "spec": {
+            "global": {
+              "clusterDomain": "cluster.local",
+              "dnsNamespace": "openshift-dns",
+              "dnsService": "dns-default"
+            },
             "loki": {
+              "auth_enabled": false,
               "commonConfig": {
                 "replication_factor": 1
+              },
+              "storage": {
+                "type": "filesystem"
               }
             },
             "monitoring": {
+              "dashboards": {
+                "enabled": false
+              },
+              "lokiCanary": {
+                "enabled": false
+              },
+              "rules": {
+                "alerting": false,
+                "enabled": false
+              },
               "selfMonitoring": {
                 "enabled": false,
                 "grafanaAgent": {
@@ -24,16 +43,17 @@ metadata:
                 }
               },
               "serviceMonitor": {
+                "enabled": false,
                 "metricsInstance": {
                   "enabled": false
                 }
               }
             },
+            "rbac": {
+              "sccEnabled": true
+            },
             "singleBinary": {
               "replicas": 1
-            },
-            "storage": {
-              "type": "filesystem"
             },
             "test": {
               "enabled": false
@@ -42,10 +62,10 @@ metadata:
         }
       ]
     capabilities: Basic Install
-    createdAt: "2023-06-28T17:43:25Z"
+    createdAt: "2023-06-28T23:58:31Z"
     operators.operatorframework.io/builder: operator-sdk-v1.30.0
     operators.operatorframework.io/project_layout: hybrid.helm.sdk.operatorframework.io/v1-alpha
-  name: loki-helm-operator.v0.0.1
+  name: loki-helm-operator.v0.0.6
   namespace: placeholder
 spec:
   apiservicedefinitions: {}
@@ -101,6 +121,8 @@ spec:
           resources:
           - clusterrolebindings
           - clusterroles
+          - rolebindings
+          - roles
           verbs:
           - '*'
         - apiGroups:
@@ -135,7 +157,13 @@ spec:
           - monitoring.k8s.io
           resources:
           - servicemonitor
-          - prometheusrule
+          - prometheusrules
+          verbs:
+          - '*'
+        - apiGroups:
+          - security.openshift.io
+          resources:
+          - securitycontextconstraints
           verbs:
           - '*'
         - apiGroups:
@@ -219,7 +247,7 @@ spec:
                 - --metrics-bind-address=127.0.0.1:8080
                 - --leader-elect
                 - --leader-election-id=loki-helm-operator
-                image: quay.io/skattoju/loki-helm-operator-controller:0.0.1
+                image: quay.io/skattoju/loki-helm-operator-controller:0.0.6
                 livenessProbe:
                   httpGet:
                     path: /healthz
@@ -235,11 +263,11 @@ spec:
                   periodSeconds: 10
                 resources:
                   limits:
-                    cpu: 500m
-                    memory: 128Mi
+                    cpu: "1"
+                    memory: 1Gi
                   requests:
-                    cpu: 10m
-                    memory: 64Mi
+                    cpu: 250m
+                    memory: 256Mi
                 securityContext:
                   allowPrivilegeEscalation: false
                   capabilities:
@@ -305,4 +333,4 @@ spec:
   provider:
     name: Sid
     url: skattoju.net
-  version: 0.0.1
+  version: 0.0.6

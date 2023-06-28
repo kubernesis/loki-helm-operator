@@ -52,6 +52,8 @@ rules:
   resources:
   - "clusterrolebindings"
   - "clusterroles"
+  - "rolebindings"
+  - "roles"
 - verbs:
   - "*"
   apiGroups:
@@ -86,7 +88,13 @@ rules:
   - "monitoring.k8s.io"
   resources:
   - "servicemonitor"
-  - "prometheusrule"
+  - "prometheusrules"
+- verbs:
+  - "*"
+  apiGroups:
+  - "security.openshift.io"
+  resources:
+  - "securitycontextconstraints"
 
 
 #+kubebuilder:scaffold:rules

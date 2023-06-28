@@ -5,4 +5,4 @@ kind: Kustomization
 images:
 - name: controller
   newName: quay.io/skattoju/loki-helm-operator-controller
-  newTag: 0.0.1
+  newTag: 0.0.6
