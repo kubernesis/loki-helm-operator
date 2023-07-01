@@ -103,7 +103,7 @@ vet: ## Run go vet against code.
 
 .PHONY: build
 build: ## Build custom controller
-	go build
+	go build -o bin/manager main.go
 
 .PHONY: test
 test: manifests generate fmt vet envtest ## Run tests.
