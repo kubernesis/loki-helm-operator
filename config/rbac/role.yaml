@@ -79,12 +79,6 @@ rules:
 - verbs:
   - "*"
   apiGroups:
-  - "apiextensions.k8s.io"
-  resources:
-  - "customresourcedefinitions"
-- verbs:
-  - "*"
-  apiGroups:
   - "monitoring.k8s.io"
   resources:
   - "servicemonitor"
@@ -95,6 +89,12 @@ rules:
   - "security.openshift.io"
   resources:
   - "securitycontextconstraints"
+# - verbs:
+#   - "*"
+#   apiGroups:
+#   - "apiextensions.k8s.io"
+#   resources:
+#   - "customresourcedefinitions"
 
 
 #+kubebuilder:scaffold:rules
