@@ -2,6 +2,8 @@ apiVersion: charts.example.com/v1alpha1
 kind: Loki
 metadata:
   name: loki-sample
+  annotations:
+    helm.sdk.operatorframework.io/install-disable-crds: true
 spec:
   global:
     clusterDomain: cluster.local
