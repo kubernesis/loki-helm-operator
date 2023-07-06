@@ -1,7 +1,7 @@
 # loki-helm-operator
 A helm based operator for the loki solution with single binary mode deployment optionality for experimentation purposes
 
-# example yaml for a minimal deploy
+# example yaml for a minimal deployment
 ```
 apiVersion: charts.example.com/v1alpha1
 kind: Loki
