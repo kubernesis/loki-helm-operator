@@ -28,6 +28,7 @@ import (
 	"github.com/operator-framework/helm-operator-plugins/pkg/watches"
 	_ "k8s.io/client-go/plugin/pkg/client/auth"
 
+	"github.com/skattoju/loki-helm-operator/customannotations"
 	ctrlruntime "k8s.io/apimachinery/pkg/runtime"
 	utilruntime "k8s.io/apimachinery/pkg/util/runtime"
 	clientgoscheme "k8s.io/client-go/kubernetes/scheme"
@@ -123,7 +124,7 @@ func main() {
 			reconciler.SkipDependentWatches(w.WatchDependentResources != nil && !*w.WatchDependentResources),
 			reconciler.WithMaxConcurrentReconciles(maxConcurrentReconciles),
 			reconciler.WithReconcilePeriod(reconcilePeriod),
-			reconciler.WithInstallAnnotations(annotation.DefaultInstallAnnotations...),
+			reconciler.WithInstallAnnotations(customannotations.DefaultInstallDisableCRDs...),
 			reconciler.WithUpgradeAnnotations(annotation.DefaultUpgradeAnnotations...),
 			reconciler.WithUninstallAnnotations(annotation.DefaultUninstallAnnotations...),
 		)
