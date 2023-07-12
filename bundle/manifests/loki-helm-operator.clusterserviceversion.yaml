@@ -66,8 +66,8 @@ metadata:
       ]
     capabilities: Basic Install
     categories: Big Data
-    containerImage: quay.io/opdev/airflow-helm-operator:0.0.1
-    createdAt: "2023-07-12T21:29:52Z"
+    containerImage: quay.io/opdev/loki-helm-operator:0.0.1
+    createdAt: "2023-07-12T21:43:03Z"
     description: An experimental operator that installs Apache Airflow.
     operators.operatorframework.io/builder: operator-sdk-v1.30.0
     operators.operatorframework.io/project_layout: hybrid.helm.sdk.operatorframework.io/v1-alpha
@@ -345,10 +345,10 @@ spec:
   - helm
   links:
   - name: Loki Helm Operator
-    url: https://loki-helm-operator.domain
+    url: https://github.com/skattoju/loki-helm-operator
   maturity: alpha
   minKubeVersion: 1.25.0
   provider:
-    name: Sid
-    url: skattoju.net
+    name: opdev
+    url: https://opdev.github.io/
   version: 0.0.1
