@@ -67,8 +67,8 @@ metadata:
     capabilities: Basic Install
     categories: Big Data
     containerImage: quay.io/opdev/loki-helm-operator:0.0.1
-    createdAt: "2023-07-12T21:43:03Z"
-    description: An experimental operator that installs Apache Airflow.
+    createdAt: "2023-07-12T21:52:26Z"
+    description: An experimental operator that installs loki from its official helmchart.
     operators.operatorframework.io/builder: operator-sdk-v1.30.0
     operators.operatorframework.io/project_layout: hybrid.helm.sdk.operatorframework.io/v1-alpha
   name: loki-helm-operator.v0.0.1
@@ -77,13 +77,19 @@ spec:
   apiservicedefinitions: {}
   customresourcedefinitions:
     owned:
-    - kind: GrafanaAgent
+    - description: Grafana Agent
+      displayName: Grafana Agent
+      kind: GrafanaAgent
       name: grafanaagents.monitoring.grafana.com
       version: v1alpha1
-    - kind: Integration
+    - description: Integration
+      displayName: Integration
+      kind: Integration
       name: integrations.monitoring.grafana.com
       version: v1alpha1
-    - kind: LogsInstance
+    - description: Log Instance
+      displayName: Log Instance
+      kind: LogsInstance
       name: logsinstances.monitoring.grafana.com
       version: v1alpha1
     - description: Deploys the loki operator helm chart
@@ -91,10 +97,14 @@ spec:
       kind: Loki
       name: lokis.charts.example.com
       version: v1alpha1
-    - kind: MetricsInstance
+    - description: Metrics Instance
+      displayName: Metrics Instance
+      kind: MetricsInstance
       name: metricsinstances.monitoring.grafana.com
       version: v1alpha1
-    - kind: PodLogs
+    - description: Pod Logs
+      displayName: Pod Logs
+      kind: PodLogs
       name: podlogs.monitoring.grafana.com
       version: v1alpha1
   description: Loki operator based on the helm chart with single binary mode deployment
