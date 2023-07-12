@@ -4,6 +4,9 @@ metadata:
   annotations:
     alm-examples: '[]'
     capabilities: Basic Install
+    categories: Big Data
+    containerImage: quay.io/opdev/airflow-helm-operator:0.0.1
+    description: An experimental operator that installs Apache Airflow.
   name: loki-helm-operator.v0.0.0
   namespace: placeholder
 spec:
@@ -11,8 +14,9 @@ spec:
   customresourcedefinitions:
     owned:
     - description: Deploys the loki operator helm chart
-      kind: GrafanaAgent
-      name: grafanaagents.monitoring.grafana.com
+      displayName: Loki
+      kind: Loki
+      name: lokis.charts.example.com
       version: v1alpha1
   description: Loki operator based on the helm chart with single binary mode deployment
     optionality
@@ -42,6 +46,7 @@ spec:
   - name: Loki Helm Operator
     url: https://loki-helm-operator.domain
   maturity: alpha
+  minKubeVersion: 1.25.0
   provider:
     name: Sid
     url: skattoju.net
