@@ -67,7 +67,7 @@ metadata:
     capabilities: Basic Install
     categories: Big Data
     containerImage: quay.io/opdev/loki-helm-operator:0.0.1
-    createdAt: "2023-07-12T21:52:26Z"
+    createdAt: "2023-07-12T22:19:38Z"
     description: An experimental operator that installs loki from its official helmchart.
     operators.operatorframework.io/builder: operator-sdk-v1.30.0
     operators.operatorframework.io/project_layout: hybrid.helm.sdk.operatorframework.io/v1-alpha
@@ -274,7 +274,7 @@ spec:
                 - --metrics-bind-address=127.0.0.1:8080
                 - --leader-elect
                 - --leader-election-id=loki-helm-operator
-                image: quay.io/opdev/loki-helm-operator-controller:0.0.1
+                image: quay.io/opdev/spark-helm-operator-controller:0.0.1
                 livenessProbe:
                   httpGet:
                     path: /healthz
@@ -357,7 +357,7 @@ spec:
   - name: Loki Helm Operator
     url: https://github.com/skattoju/loki-helm-operator
   maturity: alpha
-  minKubeVersion: 1.25.0
+  minKubeVersion: 1.23.0
   provider:
     name: opdev
     url: https://opdev.github.io/

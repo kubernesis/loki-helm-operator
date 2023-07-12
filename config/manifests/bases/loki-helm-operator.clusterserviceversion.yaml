@@ -71,7 +71,7 @@ spec:
   - name: Loki Helm Operator
     url: https://github.com/skattoju/loki-helm-operator
   maturity: alpha
-  minKubeVersion: 1.25.0
+  minKubeVersion: 1.23.0
   provider:
     name: opdev
     url: https://opdev.github.io/
