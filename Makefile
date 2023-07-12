@@ -64,7 +64,7 @@ SHELL = /usr/bin/env bash -o pipefail
 .SHELLFLAGS = -ec
 
 .PHONY: all
-all: build
+all: build bundle bundle-build bundle-push docker-build docker-push
 
 ##@ General
 
