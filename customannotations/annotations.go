@@ -1,4 +1,4 @@
-package internal
+package customannotations
 
 import (
 	"strconv"
@@ -11,6 +11,10 @@ import (
 const (
 	defaultDomain             = "helm.sdk.operatorframework.io"
 	defaultInstallDisableCRDs = defaultDomain + "/install-disable-crds"
+)
+
+var (
+	DefaultInstallDisableCRDs = []hpannotations.Install{InstallDisableCRDs{}}
 )
 
 type InstallDisableCRDs struct {
