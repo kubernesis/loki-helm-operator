@@ -5,7 +5,7 @@ metadata:
     alm-examples: '[]'
     capabilities: Basic Install
     categories: Big Data
-    containerImage: quay.io/opdev/airflow-helm-operator:0.0.1
+    containerImage: quay.io/opdev/loki-helm-operator:0.0.1
     description: An experimental operator that installs Apache Airflow.
   name: loki-helm-operator.v0.0.0
   namespace: placeholder
@@ -44,10 +44,10 @@ spec:
   - helm
   links:
   - name: Loki Helm Operator
-    url: https://loki-helm-operator.domain
+    url: https://github.com/skattoju/loki-helm-operator
   maturity: alpha
   minKubeVersion: 1.25.0
   provider:
-    name: Sid
-    url: skattoju.net
+    name: opdev
+    url: https://opdev.github.io/
   version: 0.0.0
