@@ -45,6 +45,9 @@ spec:
   links:
   - name: Loki Helm Operator
     url: https://github.com/skattoju/loki-helm-operator
+  maintainers:
+  - email: skattoju@redhat.com
+    name: Sid Kattoju
   maturity: alpha
   minKubeVersion: 1.23.0
   provider:
