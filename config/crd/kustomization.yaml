@@ -3,9 +3,9 @@
 # It should be run by config/default
 resources:
 - bases/charts.example.com_lokis.yaml
-- bases/monitoring.grafana.com_grafanaagents.yaml
-- bases/monitoring.grafana.com_integrations.yaml
-- bases/monitoring.grafana.com_logsinstances.yaml
-- bases/monitoring.grafana.com_metricsinstances.yaml
-- bases/monitoring.grafana.com_podlogs.yaml
+# - bases/monitoring.grafana.com_grafanaagents.yaml
+# - bases/monitoring.grafana.com_integrations.yaml
+# - bases/monitoring.grafana.com_logsinstances.yaml
+# - bases/monitoring.grafana.com_metricsinstances.yaml
+# - bases/monitoring.grafana.com_podlogs.yaml
 #+kubebuilder:scaffold:crdkustomizeresource

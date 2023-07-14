@@ -872,6 +872,7 @@ spec:
                   that it is running inside of the cluster and will discover API servers
                   automatically and use the pod's CA certificate and bearer token
                   file at /var/run/secrets/kubernetes.io/serviceaccount.
+                type: string
               configMaps:
                 description: ConfigMaps is a list of config maps in the same namespace
                   as the GrafanaAgent object which will be mounted into each running
@@ -3562,6 +3563,7 @@ spec:
                           type: object
                         basicAuth:
                           description: BasicAuth for the Loki server.
+                          type: string
                         batchSize:
                           description: Maximum batch size (in bytes) of logs to accumulate
                             before sending the batch to Loki.
@@ -3584,6 +3586,7 @@ spec:
                           type: object
                         oauth2:
                           description: Oauth2 for URL
+                          type: string
                         proxyUrl:
                           description: ProxyURL to proxy requests through. Optional.
                           type: string
@@ -3600,6 +3603,7 @@ spec:
                         tlsConfig:
                           description: TLSConfig to use for the client. Only used
                             when the protocol of the URL is https.
+                          type: string
                         url:
                           description: 'URL is the URL where Loki is listening. Must
                             be a full HTTP URL, including protocol. Required. Example:
@@ -3730,6 +3734,7 @@ spec:
                       based on a ServiceMonitor can access arbitrary files on the
                       file system of the Grafana Agent container, e.g., bearer token
                       files.
+                    type: string
                   enforcedNamespaceLabel:
                     description: EnforcedNamespaceLabel enforces adding a namespace
                       label of origin for each metric that is user-created. The label
@@ -4088,6 +4093,7 @@ spec:
               podMetadata:
                 description: PodMetadata configures Labels and Annotations which are
                   propagated to created Grafana Agent pods.
+                type: string
               portName:
                 description: Port name used for the pods and governing service. This
                   defaults to agent-metrics.

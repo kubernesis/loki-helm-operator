@@ -13,35 +13,10 @@ spec:
   apiservicedefinitions: {}
   customresourcedefinitions:
     owned:
-    - description: Grafana Agent
-      displayName: Grafana Agent
-      kind: GrafanaAgent
-      name: grafanaagents.monitoring.grafana.com
-      version: v1alpha1
-    - description: Integration
-      displayName: Integration
-      kind: Integration
-      name: integrations.monitoring.grafana.com
-      version: v1alpha1
-    - description: Log Instance
-      displayName: Log Instance
-      kind: LogsInstance
-      name: logsinstances.monitoring.grafana.com
-      version: v1alpha1
     - description: Deploys the loki operator helm chart
       displayName: Loki
       kind: Loki
       name: lokis.charts.example.com
-      version: v1alpha1
-    - description: Metrics Instance
-      displayName: Metrics Instance
-      kind: MetricsInstance
-      name: metricsinstances.monitoring.grafana.com
-      version: v1alpha1
-    - description: Pod Logs
-      displayName: Pod Logs
-      kind: PodLogs
-      name: podlogs.monitoring.grafana.com
       version: v1alpha1
   description: Loki operator based on the helm chart with single binary mode deployment
     optionality
